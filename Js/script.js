@@ -58,3 +58,9 @@ async function fetchWord(word) {
             result.innerHTML = `<p>${error.message}</p>`;
         }
 }
+
+//Function play aduio
+function playAudio(src) {
+    const audio = new Audio(src);
+    audio.play();
+}
