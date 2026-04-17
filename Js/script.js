@@ -31,6 +31,10 @@ async function fetchWord(word) {
         const phonetic = wordData.phonetic || "";
 
         let audio = "";
-        if  (wordData.)
+        if  (wordData.phonetics && wordData.phonetics.length > 0) {
+            audio = wordData.phonetics.find(p => p.audio)?.audio || "";
+        }
+
+        
     }
 }
