@@ -1,0 +1,29 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: azure;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.Dict {
+    background-color: aqua;
+    padding: 20px;
+    width: 500px;
+    border-radius: 10px;
+}
+
+header {
+    text-align: center;
+}
+
+.search-part {
+    display: flex;
+    gap: 10px;
+    margin: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+}
