@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Dictionary App</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="Dict">
@@ -11,13 +12,12 @@
             <h1>Wordbook</h1>
         </header>
 
-        <section class="search-part">
-            <input type="text" id="inputSearch" placeholder="word search"/>
-            <button id="searchBtn">Search</button>
-        </section>
+        <form id="searchForm" aria-live="Word search">
+            <input type="text" id="nputSearch" placeholder="Enter a word" aria-label="Word input" required>
+        </form>
 
-        <section id="result" class="result">
-
+        <section id="result" class="result" aria-live="polite">
+            <p>Search for word meaning.</p>
         </section>
 
     </div>
