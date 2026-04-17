@@ -9,5 +9,28 @@ form.addEventListener("submit", function(e){
 
     const word = input.ariaValueMax.trim();
     if(!word) return;
+
+    fetchWord(word)
 });
 
+//Fetching data
+async function fetchWord(word) {
+    result.innerHTML = "<p>Loading...</p>";
+
+    try {
+        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/<word>`);
+
+        if (!response.ok) {
+            throw new Error("word not found");
+        }
+
+        const data = awaitresponse.json();
+        const wordData = data[0];
+
+        const wordText = wordData.word;
+        const phonetic = wordData.phonetic || "";
+
+        let audio = "";
+        if  (wordData.)
+    }
+}
