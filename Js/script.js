@@ -43,6 +43,18 @@ async function fetchWord(word) {
 
         synonymsHTML = synonyms.map(s => `<span>${s}</span>`).join("");
 
+        result.innerHTML = `
+            <h2>${wordText}</h2>
+            <p>${phonetic}</p>
+            ${audio ? `<button onclick="playAudio("${audio}")">Play</button>` : ""}
 
-    }
+            <h3>${meaning.wordClass}</h3>
+            <p>${definition}</p>
+
+            <div class="synonyms">${synonymsHTML}</div>`;
+        }
+
+        catch (error) {
+            
+        }
 }
