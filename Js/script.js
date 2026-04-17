@@ -41,6 +41,8 @@ async function fetchWord(word) {
         let synonymsHTML = "";
         const synonyms = meaning.definitions[0].synonyms || [];
 
+        synonymsHTML = synonyms.map(s => `<span>${s}</span>`).join("");
+
 
     }
 }
