@@ -35,6 +35,12 @@ async function fetchWord(word) {
             audio = wordData.phonetics.find(p => p.audio)?.audio || "";
         }
 
-        
+        const meaning = wordData.meanings[0];
+        const definition = meaning.definitions[0].definition;
+
+        let synonymsHTML = "";
+        const synonyms = meaning.definitions[0].synonyms || [];
+
+
     }
 }
