@@ -42,5 +42,22 @@ button:hover {
 }
 
 .result {
-    margin-top: 20px 0;
+    margin-top: 20px;
+}
+
+.result p {
+    margin: 5px;
+} 
+
+.synonyms {
+    margin-top: 10px;
+}
+
+.synonyms span {
+    font-size: 15px;
+    display: inline-block;
+    background-color: aliceblue;
+    padding: 5px 10px;
+    margin: 5px 5px 0 0;
+    border-radius: 6px;
 }
