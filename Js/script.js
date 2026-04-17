@@ -55,6 +55,6 @@ async function fetchWord(word) {
         }
 
         catch (error) {
-            
+            result.innerHTML = `<p>${error.message}</p>`;
         }
 }
