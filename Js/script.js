@@ -1,13 +1,13 @@
 //Getting elements
 const form = document.getElementById("searchForm");
 const input = document.getElementById("inputSearch");
-const result = document.getElementById("result")
+const result = document.getElementById("result");
 
 //Event listener
 form.addEventListener("submit", function(e){
     e.preventDefault();
 
-    const word = input.ariaValueMax.trim();
+    const word = input.value.trim();
     if(!word) return;
 
     fetchWord(word)
@@ -18,13 +18,13 @@ async function fetchWord(word) {
     result.innerHTML = "<p>Loading...</p>";
 
     try {
-        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/<word>`);
+        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
 
         if (!response.ok) {
             throw new Error("word not found");
         }
 
-        const data = awaitresponse.json();
+        const data = await response.json();
         const wordData = data[0];
 
         const wordText = wordData.word;
@@ -46,9 +46,9 @@ async function fetchWord(word) {
         result.innerHTML = `
             <h2>${wordText}</h2>
             <p>${phonetic}</p>
-            ${audio ? `<button onclick="playAudio("${audio}")">Play</button>` : ""}
+            ${audio ? `<button onclick="playAudio('${audio}')">Play</button>` : ""}
 
-            <h3>${meaning.wordClass}</h3>
+            <h3>${meaning.partOfSpeech}</h3>
             <p>${definition}</p>
 
             <div class="synonyms">${synonymsHTML}</div>`;

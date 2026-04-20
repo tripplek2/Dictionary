@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Dictionary App</title>
     <link rel="stylesheet" href="css/style.css">
+    <script defer src="Js/script.js"></script>
 </head>
 <body>
     <div class="Dict">
         <header>
-            <h1>Wordbook</h1>
+            <h1>WordBook</h1>
         </header>
 
-        <form id="searchForm" aria-live="Word search">
-            <input type="text" id="nputSearch" placeholder="Enter a word" aria-label="Word input" required>
+        <form id="searchForm" aria-label="Word search">
+            <input type="text" id="inputSearch" placeholder="Enter a word" aria-label="Word input" required>
+
+            <button type="submit">Search</button>
         </form>
 
-        <section id="result" class="result" aria-live="polite">
+        <section id="result" class="result" aria-label="polite">
             <p>Search for word meaning.</p>
         </section>
 

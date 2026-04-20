@@ -32,13 +32,13 @@ input {
 button {
     padding: 10px;
     cursor: pointer;
-    background-color: blueviolet;
+    background-color: rgb(214, 209, 219);
     color: #5f5959;
     border-radius: 5px;
 }
 
 button:hover {
-    background-color: beige;
+    background-color: rgb(201, 201, 157);
 }
 
 .result {
