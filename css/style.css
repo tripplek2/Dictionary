@@ -46,18 +46,34 @@ button:hover {
     background-color: rgb(201, 201, 157);
 }
 
+/* Result */
 .card {
     background-color: beige;
     padding: 15px;
+    border-radius: 10px;
     margin-top: 20px;
 }
 
-.result p {
-    margin: 5px;
+.card h2 {
+    margin-bottom: 5px;
 } 
 
+.phonetic {
+    color: #000;
+    font-style: italic;
+}
+
+.meaning {
+    margin-top: 15px;
+}
+
+.meaning h3 {
+    color: #5f5959;
+    margin-top: 15px;
+}
+
 .synonyms {
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .synonyms span {
