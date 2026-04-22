@@ -71,17 +71,16 @@ async function fetchWord(word) {
                 ${SynonymsHTML}
             </div> `;
             
-
-
-       
-
-       
-
-        catch (error) {
-            result.innerHTML = `<p>${error.message}</p>`;
+        if (audioSrc) {
+            document.getElementById("audioBtn").addEventListener("click", () => playAudio(audioSrc));
         }
-}
+    }
 
+       
+
+       
+
+     
 //Function play aduio
 function playAudio(src) {
     const audio = new Audio(src);
