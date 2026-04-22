@@ -76,13 +76,13 @@ async function fetchWord(word) {
         }
     }
 
-       
-
-       
-
-     
 //Function play aduio
 function playAudio(src) {
     const audio = new Audio(src);
     audio.play();
+}
+
+//Error display
+function showError(message) {
+    result.innerHTML = `<p class="error>${message}</p>`;
 }
