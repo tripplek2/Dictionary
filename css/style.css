@@ -11,11 +11,13 @@ body {
     padding: 20px;
     width: 500px;
     border-radius: 10px;
-    box-shadow: darkslateblue;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 header {
     text-align: center;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 form {

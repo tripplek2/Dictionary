@@ -29,9 +29,14 @@ async function fetchWord(word) {
         }
 
         const data = await response.json();
-        displayWord(data[0]);
+        displayWord(data[0]);}
 
-        //Display function
+    catch (error) {
+        showError(error.message)
+    }
+}
+
+     //Display function
     function displayWord(wordData) {
         const wordText = wordData.word;
         const phonetic = wordData.phonetic || "";
@@ -39,7 +44,7 @@ async function fetchWord(word) {
         const audioSrc = wordData.phonetics?.find(p => p.audio)?.audio;
 
         let meaningsHTML = wordData.meanings.map(meaning => {
-            const defs = meaning.definition.map(def => `
+            const defs = meaning.definitions.map(def => `
                 <li>
                     ${def.definition}
                     ${def.example ? `<br><em>Example: ${def.example}</em>` : ""}
@@ -54,21 +59,21 @@ async function fetchWord(word) {
             }).join("");
 
         //Synonyms
-        const Synonyms = wordData.meanings[0].definitions[0].Synonyms || [];
-        const SynonymsHTML = Synonyms.length ?
+        const synonyms = wordData.meanings[0].definitions[0].synonyms || [];
+        const synonymsHTML = synonyms.length ?
            `<div class = "synonyms">
-              <strong>synonyms</strong>
+              <strong>Synonyms</strong>
               ${synonyms.map(s => `<span class="tag">${s}</span>`).join("")}
            </div>`
         : "";
         
         result.innerHTML = 
-            `<div class = "card>
+            `<div class = "card">
                 <h2>${wordText}</h2>
                 <P class= "phonetic">${phonetic}</P>
                 ${audioSrc ? `<button id="audioBtn">Play</button>` : ""}
                 ${meaningsHTML}
-                ${SynonymsHTML}
+                ${synonymsHTML}
             </div> `;
             
         if (audioSrc) {
@@ -84,5 +89,5 @@ function playAudio(src) {
 
 //Error display
 function showError(message) {
-    result.innerHTML = `<p class="error>${message}</p>`;
+    result.innerHTML = `<p class="error">${message}</p>`;
 }
