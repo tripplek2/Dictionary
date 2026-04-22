@@ -53,6 +53,26 @@ async function fetchWord(word) {
             `;
             }).join("");
 
+        //Synonyms
+        const Synonyms = wordData.meanings[0].definitions[0].Synonyms || [];
+        const SynonymsHTML = Synonyms.length ?
+           `<div class = "synonyms">
+              <strong>synonyms</strong>
+              ${synonyms.map(s => `<span class="tag">${s}</span>`).join("")}
+           </div>`
+        : "";
+        
+        result.innerHTML = 
+            `<div class = "card>
+                <h2>${wordText}</h2>
+                <P class= "phonetic">${phonetic}</P>
+                ${audioSrc ? `<button id="audioBtn">Play</button>` : ""}
+                ${meaningsHTML}
+                ${SynonymsHTML}
+            </div> `;
+            
+
+
        
 
        
