@@ -8,7 +8,11 @@ form.addEventListener("submit", function(e){
     e.preventDefault();
 
     const word = input.value.trim();
-    if(!word) return;
+
+    if(!word) {
+        showError("Please enter a word");
+        return;
+    }
 
     fetchWord(word)
 });
@@ -25,10 +29,14 @@ async function fetchWord(word) {
         }
 
         const data = await response.json();
-        const wordData = data[0];
+        displayWord(data[0]);
 
+        //Display function
+    function displayWord(wordData) {
         const wordText = wordData.word;
         const phonetic = wordData.phonetic || "";
+
+        const audioSrc = wordData.phonetics?.find(p => p.audio)?.audio;
 
         let audio = "";
         if  (wordData.phonetics && wordData.phonetics.length > 0) {
