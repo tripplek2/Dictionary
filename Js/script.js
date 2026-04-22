@@ -38,29 +38,24 @@ async function fetchWord(word) {
 
         const audioSrc = wordData.phonetics?.find(p => p.audio)?.audio;
 
-        let audio = "";
-        if  (wordData.phonetics && wordData.phonetics.length > 0) {
-            audio = wordData.phonetics.find(p => p.audio)?.audio || "";
-        }
+        let meaningsHTML = wordData.meanings.map(meaning => {
+            const defs = meaning.definition.map(def => `
+                <li>
+                    ${def.definition}
+                    ${def.example ? `<br><em>Example: ${def.example}</em>` : ""}
+                </li>`).join("");
+        
+            return `
+                <div class ="meaning">
+                  <h3>${meaning.partOfSpeech}</h3>
+                  <ul>${defs}</ul>
+                </div>
+            `;
+            }).join("");
 
-        const meaning = wordData.meanings[0];
-        const definition = meaning.definitions[0].definition;
+       
 
-        let synonymsHTML = "";
-        const synonyms = meaning.definitions[0].synonyms || [];
-
-        synonymsHTML = synonyms.map(s => `<span>${s}</span>`).join("");
-
-        result.innerHTML = `
-            <h2>${wordText}</h2>
-            <p>${phonetic}</p>
-            ${audio ? `<button onclick="playAudio('${audio}')">Play</button>` : ""}
-
-            <h3>${meaning.partOfSpeech}</h3>
-            <p>${definition}</p>
-
-            <div class="synonyms">${synonymsHTML}</div>`;
-        }
+       
 
         catch (error) {
             result.innerHTML = `<p>${error.message}</p>`;
