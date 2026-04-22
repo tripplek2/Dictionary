@@ -1,13 +1,13 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: azure;
+    background-color: rgb(231, 235, 239);
     display: flex;
     justify-content: center;
     padding: 25px;
 }
 
 .Dict {
-    background-color: aqua;
+    background-color: rgb(100, 213, 213);
     padding: 20px;
     width: 500px;
     border-radius: 10px;
@@ -48,7 +48,7 @@ button:hover {
 
 /* Result */
 .card {
-    background-color: beige;
+    background-color: rgb(194, 210, 227);
     padding: 15px;
     border-radius: 10px;
     margin-top: 20px;
@@ -91,3 +91,8 @@ button:hover {
     background-color: aqua;
 }
 
+.error {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
